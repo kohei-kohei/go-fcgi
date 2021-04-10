@@ -4,8 +4,8 @@ services:
     volumes:
       - ./backend:/backend
     build:
-      context: .
-      dockerfile: ./backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     command: /bin/sh -c "go run main.go"
     stdin_open: true
     tty: true
@@ -15,9 +15,7 @@ services:
     #   - "mysql"
 
   nginx: 
-    build:
-      context: .
-      dockerfile: ./nginx/Dockerfile
+    build: ./nginx
     ports:
       - 8000:80
     volumes:
